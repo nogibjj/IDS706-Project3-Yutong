@@ -1,11 +1,6 @@
-boto3
+black
 pylint
-click
 pytest
-pytest-cov
-fastapi
-requests
-openai
-python-youtube
-beautifulsoup4==4.11.1
-aws-cdk-lib
+click
+kaggle
+pandas
