@@ -9,6 +9,6 @@ If you see OSError: Could not find kaggle.json. Make sure it's located in /home/
 
 #### Downloading Kaggle dataset
 
-`./download_kaggle_data.sh <kaggle_data_name>`
+`./download_kaggle_data.sh -d <kaggle_data_name>`
 
-Example: `./download_kaggle_data.sh store-sales-time-series-forecasting`
+Example: `./download_kaggle_data.sh -d store-sales-time-series-forecasting`
