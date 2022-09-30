@@ -25,13 +25,12 @@ then
 fi
 
 # prepare environment
-# sudo apt install unzip
+sudo apt install unzip
 make install
 sudo ln -s ~/.local/bin/kaggle /usr/bin/kaggle
 
 # dowanload data
 echo "First arg: $KAGGLE_DATA"
-# KAGGLE_DATA=store-sales-time-series-forecasting
 kaggle competitions download -c $KAGGLE_DATA
 
 # unzip data
