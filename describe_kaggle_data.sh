@@ -40,6 +40,6 @@ unzip $KAGGLE_DATA.zip -d data
 
 # describe data
 echo ""
-echo "Data is read..."
+echo "Data is ready..."
 echo ""
 ./describe_data.py
