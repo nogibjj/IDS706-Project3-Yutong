@@ -43,3 +43,6 @@ echo ""
 echo "Data is ready..."
 echo ""
 ./describe_data.py
+
+# remove zip file
+rm *.zip
