@@ -1,6 +1,8 @@
 # IDS706-Project2-Yutong
 This is the repo for IDS706 course project 2.
 
+CLT downloads and describes any Kaggle data with the dataset name.
+
 ### Usage
 
 #### Getting access to Kaggle dataset
