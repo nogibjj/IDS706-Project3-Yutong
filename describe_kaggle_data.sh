@@ -3,7 +3,7 @@
 helpFunction()
 {
    echo ""
-   echo "Usage: ./download_kaggle_data.sh -d <parameter>"
+   echo "Usage: ./describe_kaggle_data.sh -d <parameter>"
    echo -e "\t-d The name of the Kaggle dataset to download."
    exit 1 # exit script after printing help
 }
@@ -37,3 +37,9 @@ kaggle competitions download -c $KAGGLE_DATA
 rm -rf data
 mkdir data
 unzip $KAGGLE_DATA.zip -d data
+
+# describe data
+echo ""
+echo "Data is read..."
+echo ""
+./describe_data.py
