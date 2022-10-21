@@ -6,10 +6,13 @@
 
 import pandas as pd
 from sodapy import Socrata
+import dotenv
+import os
 
-TOKEN = "AJQvu7Yuf7tc8JSSuBgBlmJvO"
-USERNAME = "zhang.bingfen@outlook.com"
-PASSWORD = "yutong@IDS706"
+dotenv.load_dotenv()
+TOKEN=os.getenv('TOKEN')
+USERNAME=os.getenv('USERNAME')
+PASSWORD=os.getenv('PASSWORD')
 
 
 # Unauthenticated client only works with public data sets. Note 'None'
