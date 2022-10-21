@@ -2,5 +2,5 @@ black
 pylint
 pytest
 click
-kaggle
 pandas
+sodapy
