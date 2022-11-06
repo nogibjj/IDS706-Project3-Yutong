@@ -32,7 +32,7 @@ def get_career_level(client):
     print("\n")
 
 def filter_jobs(client, job_category = "", career_level = ""):
-    select_clause = "job_id, agency, posting_date, salary_range_to"
+    select_clause = "job_id, agency, posting_date, salary_range_to, salary_frequency"
     where_clause = "posting_date > '2022-01-01T00:00:00.000'"
     if job_category != "":
         where_clause += " AND job_category='" + job_category + "'"
