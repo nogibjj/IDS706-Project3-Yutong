@@ -25,26 +25,47 @@ client = Socrata("data.cityofnewyork.us",
                  username = USERNAME,
                  password = PASSWORD)
 
-# First 2000 results, returned as JSON from API / converted to Python list of
-# dictionaries by sodapy.
-results = client.get("kpav-sd4t", limit = 2000, select = "*")
+def get_job_category():
+    select_clause = "job_category, COUNT(job_id)"
+    group_by_clause = "job_category"
+    order_by_clause = "COUNT(job_id) DESC"
+    
+    results = client.get("kpav-sd4t", limit = 30, select = select_clause, group = group_by_clause, order = order_by_clause)
+    results_df = pd.DataFrame.from_records(results)
+    print("------------------ JOB CATEGORIES ------------------")
+    print(results_df)
+    print("\n")
 
-# Convert to pandas DataFrame
-results_df = pd.DataFrame.from_records(results)
-print(results_df)
+def get_career_level():
+    select_clause = "career_level, COUNT(job_id)"
+    group_by_clause = "career_level"
+    order_by_clause = "COUNT(job_id) DESC"
+    
+    results = client.get("kpav-sd4t", select = select_clause, group = group_by_clause, order = order_by_clause)
+    results_df = pd.DataFrame.from_records(results)
+    print("------------------ JOB CAREER LEVELS ------------------")
+    print(results_df)
+    print("\n")
 
-select_clause = "job_id, agency, posting_date, salary_range_from, salary_range_to"
-where_clause = "job_category='Technology, Data & Innovation' AND career_level='Entry-Level'"
-order_by_clause = "posting_date DESC"
-results = client.get("kpav-sd4t", limit = 10, select = select_clause, where = where_clause, order = order_by_clause)
-results_df = pd.DataFrame.from_records(results)
-print(results_df)
+def filter_jobs(job_category = "", career_level = ""):
+    select_clause = "job_id, agency, posting_date, salary_range_to"
+    where_clause = "posting_date > '2022-01-01T00:00:00.000'"
+    if job_category != "":
+        where_clause += " AND job_category='" + job_category + "'"
+    if career_level != "":
+        where_clause += " AND career_level='" + career_level + "'"
+    order_by_clause = "posting_date DESC"
 
-select_clause = "job_category, COUNT(job_id)"
-group_by_clause = "job_category"
-order_by_clause = "COUNT(job_id) DESC"
-results = client.get("kpav-sd4t", limit = 10, select = select_clause, group = group_by_clause, order = order_by_clause)
-results_df = pd.DataFrame.from_records(results)
-print(results_df)
+    # First 2000 results, returned as JSON from API / converted to Python list of
+    # dictionaries by sodapy.
+    results = client.get("kpav-sd4t", limit = 50, select = select_clause, where = where_clause, order = order_by_clause)
+    results_df = pd.DataFrame.from_records(results)
+    print("------------------ FILTERED JOBS ------------------")
+    print(results_df)
+    print("\n")
+
+get_job_category()
+get_career_level()
+filter_jobs("Technology, Data & Innovation", "Entry-Level")
 
 # if __name__ == '__main__':
