@@ -48,7 +48,7 @@ def filter_jobs(client, job_category = "", career_level = ""):
     print(results_df)
     print("\n")
 
-if __name__ == '__main__':
+def query_nyc_jobs():
     dotenv.load_dotenv()
     TOKEN = os.getenv('TOKEN')
     USERNAME = os.getenv('USERNAME')
@@ -72,3 +72,7 @@ if __name__ == '__main__':
     print("\n")
     # filter_jobs("Technology, Data & Innovation", "Entry-Level")
     filter_jobs(client, job_category, career_level)
+
+
+if __name__ == '__main__':
+    query_nyc_jobs()
