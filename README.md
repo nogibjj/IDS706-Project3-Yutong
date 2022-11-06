@@ -5,7 +5,7 @@ A command line tool for filtering avaiable jobs at NYC. User could input desired
 
 ### Usage
 
-Run `./query_nyc_jobs.sh` or `./query_nyc_jobs.sh`, then follow instructions in terminal.
+Run `./query_nyc_jobs.sh` or `./query_nyc_jobs.py`, then follow instructions in terminal.
 
 ### Data source
 This project queries NYC Jobs dataset, from NYC open data server.
