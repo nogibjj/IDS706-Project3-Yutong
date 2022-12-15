@@ -16,9 +16,6 @@ jobs:
     - name: Install dependencies
       run: |
         make install
-    - name: Lint with pylint
-      run: |
-        make lint
 
   lint:
     
@@ -28,7 +25,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Lint with pylint
-      run: |
+      run: 
+        make install
         make lint
 
   test:
